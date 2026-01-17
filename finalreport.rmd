@@ -207,8 +207,8 @@ Our dataset features predictors “x”, “y”, and “z” as diamond dimensi
 
 ```{r include-images, fig.align='center', out.width='37%', fig.cap='\\small Color (Diamond Color Scale, n.d.) and Clarity (Diamond Clarity Guide, n.d.) Gradings for Diamonds'}
 ## Pictures for color & clarity gradings
-knitr::include_graphics("./color_grading.png")
-knitr::include_graphics("./clarity_grading.png")
+knitr::include_graphics("images/color_grading.png")
+knitr::include_graphics("images/clarity_grading.png")
 ```
 
 ```{r}

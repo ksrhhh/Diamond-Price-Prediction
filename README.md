@@ -55,16 +55,19 @@ We validated the models using an 80/20 Train-Test split and K-Fold Cross-Validat
 ## Key Insights & Visualizations
 
 ### 1. The Dominance of Carat
+<img src="images/price_vs_carat.png" alt="Price vs Carat Plot" style="width:50%;">
 
-Carat weight was the strongest predictor. After log-transformation, we found that a 1% increase in mass leads to a substantial, statistically significant increase in price, confirming an exponential valuation model.
+Carat weight was the strongest predictor in our analysis. Our EDA revealed an exponential relationship between weight and price. After applying a log-transformation, we found that even small proportional increases in mass lead to substantial, statistically significant price increases ($t = 160.8$), confirming that valuation models must account for this non-linear growth.
 
-### 2. The Width Anomaly
+### 2. The Width Anomaly: Revealing Hidden Preferences
+<img src="images/price_vs_width.png" alt="Price vs Width Plot" style="width:50%;">
 
-While `Length` had a positive correlation with price, `Width` showed a significant negative coefficient. This suggests a market preference for elongated shapes (ovals/rectangles) over proportionate ones, likely due to the psychological perception that elongated shapes look "larger."
+While the scatterplot above shows that price increases with width (because wider diamonds are usually heavier), our multivariate model revealed the opposite truth. Once we controlled for **Carat** and **Length**, the coefficient for **Width** became significantly negative ($\beta \approx -3048$). This indicates that for two diamonds of the *exact same weight*, the market penalizes the wider (squatter) diamond and pays a premium for the longer (elongated) one. This finding aligns with consumer psychology regarding "optical size"—elongated shapes are perceived as larger than rounder shapes of the same mass.
 
 ### 3. Homoscedasticity Correction
+<img src="images/residuals_comparison.png" alt="Residuals Comparison" style="width:80%;">
 
-The chart on the left shows fanning residuals (heteroscedasticity). The chart on the right demonstrates how the Weighted Least Squares (WLS) approach stabilized the variance, satisfying regression assumptions.
+The chart on the left shows the initial model's fanning residuals (heteroscedasticity), where prediction error increased with price. The chart on the right demonstrates how our **Weighted Least Squares (WLS)** approach stabilized the variance. By assigning lower weights to high-variance observations, we satisfied regression assumptions and achieved more precise coefficient estimates.
 
 ## Technologies Used
 

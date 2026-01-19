@@ -29,15 +29,19 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)  ## Global
 ```{r}
 ## load diamonds dataset
 diamonds <- read_csv("./dataset/original_diamonds_dataset.csv")
+
 ## list.files("./dataset") 
+
 ## getwd()
 ```
 
 ```{r}
 ## Data Cleaning: Remove predictor variables we don't need: 1st col, cut, depth, y, z
 diamonds_cleaned <- diamonds %>% select(-...1, -cut, -depth, -y, -z)
+
 ## head(diamonds_cleaned)
 write_csv(diamonds_cleaned, "./dataset/diamonds_cleaned.csv")
+
 ## summary(diamonds_cleaned)
 ```
 
@@ -63,12 +67,14 @@ response_numeric_sum <- data.frame(
 kable(response_numeric_sum, caption="Numerical Summary of Response Variable")
 
 ## summary(diamonds_cleaned$price)
+
 ## skim(diamonds_cleaned$price)
 ```
 
 \subsection*{Predictor Variable Summaries}
 ```{r, fig.width=13, fig.height=9}
 ## Numerical Summary of Quantitative Predictor Variables
+
 ## Table & Transpose
 numeric_sum <- diamonds_cleaned %>%
   summarise(
@@ -357,4 +363,6 @@ Interestingly, **table** and **x** are negatively associated with **price**: coe
 \hangindent=0.5in Wickham, H., van den Brand, T., Dunnington, D., Yutani, H., Woo, K., Wilke, C., Takahashi, K., Pedersen, T. L., Henry, L., \& Chang, W. (n.d.). \textit{Prices of Over 50,000 Round Cut Diamonds}. ggplot2. \url{https://ggplot2.tidyverse.org/reference/diamonds.html\#ref-usage}
 
 \endgroup
+
+# Final Project Proposal
 ```

@@ -65,7 +65,7 @@ Carat weight was the strongest predictor in our analysis. Our EDA revealed an ex
 While the scatterplot above shows that price increases with width (because wider diamonds are usually heavier), our multivariate model revealed the opposite truth. Once we controlled for **Carat** and **Length**, the coefficient for **Width** became significantly negative ($\beta \approx -3048$). This indicates that for two diamonds of the *exact same weight*, the market penalizes the wider (squatter) diamond and pays a premium for the longer (elongated) one. This finding aligns with consumer psychology regarding "optical size"—elongated shapes are perceived as larger than rounder shapes of the same mass.
 
 ### 3. Homoscedasticity Correction
-<img src="screenshots/gam_vs_wls_gam.png" alt="Residuals Comparison" style="width:80%;">
+<img src="screenshots/gam_vs_wls-gam.png" alt="Residuals Comparison" style="width:80%;">
 
 The chart on the left shows the initial model's fanning residuals (heteroscedasticity), where prediction error increased with price. The chart on the right demonstrates how our **Weighted Least Squares (WLS)** approach stabilized the variance. By assigning lower weights to high-variance observations, we satisfied regression assumptions and achieved more precise coefficient estimates.
 
